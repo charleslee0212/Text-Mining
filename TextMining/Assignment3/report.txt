@@ -1,0 +1,70 @@
+hcLR:
+does not use minibatch
+ETA: 0.0001
+review length multiplier: 0.0001
+iterations: 200000
+
+For my experiment I chose these parameters. I decided the ETA to be 0.0001 because through trial and error, 0.0001 gave me
+the highest average accuracy. I assumed the lower the review length multiplier, the higher the accuracy; however, a
+multiplier of 0.0001 is the right amount to retain the high average accuracy, anything lower would decrease the average
+accuracy. 200000 iterations of the stochastic gradient descent was sufficient. Increasing the iterations would make no
+difference or decrease the average accuracy by a little.
+
+****************************************************COMPARISON************************************************************
+training set: 13161
+  neg: 721
+  pos: 12440
+tests set: 200
+
+hcLR:
+
+pos precision = 0.711864406779661
+pos recall = 0.84
+neg precision = 0.8048780487804879
+neg recall = 0.66
+accuracy = 0.75
+
+does well identifying true positive test docs
+doesn't do too well identifying true negative test docs
+
+hcNB:
+
+pos precision = 0.6622516556291391
+pos recall = 1.0
+neg precision = 1.0
+neg recall = 0.49
+accuracy = 0.745
+
+passed all positive test docs
+no false negatives
+poorly on identifying negative test docs
+
+sklLR:
+
+pos precision = 0.7734375
+pos recall = 0.99
+neg precision = 0.9861111111111112
+neg recall = 0.71
+accuracy = 0.85
+
+really well on identifying positive test docs
+doesn't do too well identifying true negative test docs
+
+sklNB:
+
+pos precision = 0.6622516556291391
+pos recall = 1.0
+neg precision = 1.0
+neg recall = 0.49
+accuracy = 0.745
+
+passed all positive test docs
+no false negatives
+poorly identifies negative test docs
+identical output from hcNB
+
+Regarding all the methods, there is a common similarity. They all do not do great job identifying the negative test docs.
+This can be explained through the giving training set. The negative training set only contains 721 docs while the positive
+training set contains 12440. The positive training set has approximately 17 times more docs than the negative set. Therefore
+the programs will have bias on doing a better job correctly tagging the positive docs while poorly tagging the negative docs.
+If the training set were more evenly split, then the methods would show more of a balanced result.

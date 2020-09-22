@@ -1,0 +1,26 @@
+1) How does the data set size impact accuracy, recall, precision?
+
+With a smaller data set, the accuracy is higher than a greater data set. The recall and precision changes depending on
+the imbalance in the training/testing set size. Because it is more likely for a large data set size to have an imbalance
+training/testing set size, the accuracy will go down. 
+
+2) Does imbalance in training/testing set size for positive/negative impact accuracy?  If so, how?
+
+Yes. According to the data set provided, the positive set was 15 times bigger than the negative set, therefore
+having a much greater training set. By the result of this the program's false negative values appears to be around
+zero and all the positive tests are categorized positive most of the time because the program can correctly determine
+a positive test thanks to the greater training set; however the program mis-categorizes the negative test string therefore
+leading into a bias of a lot more false positives.
+
+3) Does removing punctuation and stop-words impact accuracy, recall, and precision?
+
+The accuracy seems to decrease, and the recall_positive and precision_negative does not change. However the recall_negative
+and the precision_positive does. The program mis-categorizes the negative test strings more often.
+
+4) How does the positive/negative sets chosen impact accuracy/recall/precision.
+
+For the the negative and positive sets I used the rating = 2 and 3 respectively. This changed the accuracy/recall/precision
+significantly especially the accuracy going from 60%-70% to a around 50%. It seems that the value for all of them decreased.
+These values can be explained by the categorization of the test strings. When using ratings 5 and 1 for the sets, the program
+could correctly categorize all the positive test strings; however in using the different sets, the program cannot correctly
+categorize all of the positive test strings. Also the program mis-categorizes the negative test string more often.
